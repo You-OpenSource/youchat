@@ -1,4 +1,4 @@
-package com.you.chat.error
+package io.github.you_opensource.chat.error
 
 class CompletionException : Exception {
     constructor(message: String?) : super(message)

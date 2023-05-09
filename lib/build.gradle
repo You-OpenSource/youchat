@@ -15,7 +15,7 @@ plugins {
     id 'maven-publish'
     id 'signing'
 }
-group = "com.you.chat"
+group = "io.github.you-opensource"
 archivesBaseName = "youchat"
 version = "0.0.1"
 
@@ -38,7 +38,7 @@ publishing {
     publications{
         mavenJava(MavenPublication){
 
-            groupId = 'com.you.chat'
+            groupId = 'io.github.you-opensource'
             artifactId = 'youchat'
             version = '0.0.1'
             from components.java
@@ -57,8 +57,8 @@ publishing {
                 }
                 developers {
                     developer {
-                        id = 'you.com'
-                        name = 'You.com'
+                        id = 'io.github.you-opensource'
+                        name = 'You-opensource'
                         email = 'info@you.com'
                     }
                 }

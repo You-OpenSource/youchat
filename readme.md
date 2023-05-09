@@ -11,14 +11,14 @@ Add dependency to your project
 For maven: 
 ```
 <dependency>
-  <groupId>com.you.chat</groupId>
+  <groupId>io.github.you-opensource</groupId>
   <artifactId>youchat</artifactId>
   <version>0.0.1</version>
 </dependency>
 ```
 For Gradle:
 ```
-testImplementation 'com.you.chat:youchat:0.0.1'
+testImplementation 'io.github.you-opensource:youchat:0.0.1'
 ```
 
 Use it to integrate with your Java/Kotlin code:

@@ -1,4 +1,4 @@
-package com.you.chat.data
+package io.github.you_opensource.chat.data
 
 class InputData(
     var prompt: String, var page: Int, var count: Int, var safeSearch: String, var isOnShoppingPage: Boolean,

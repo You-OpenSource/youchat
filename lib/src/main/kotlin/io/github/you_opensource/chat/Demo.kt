@@ -1,8 +1,8 @@
-package com.you.chat
+package io.github.you_opensource.chat
 
-import com.you.chat.data.CompletionResponse
-import com.you.chat.data.InputData
-import com.you.chat.error.CompletionException
+import io.github.you_opensource.chat.data.CompletionResponse
+import io.github.you_opensource.chat.data.InputData
+import io.github.you_opensource.chat.error.CompletionException
 
 internal object Demo {
     @JvmStatic
