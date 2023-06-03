@@ -3,6 +3,8 @@ package io.github.you_opensource.chat
 import io.github.you_opensource.chat.data.CompletionResponse
 import io.github.you_opensource.chat.data.InputData
 import io.github.you_opensource.chat.error.CompletionException
+import org.reactivestreams.Subscriber
+import org.reactivestreams.Subscription
 
 internal object Demo {
     @JvmStatic
@@ -20,28 +22,35 @@ internal object Demo {
         val debug = false
         val detailed = false
         var completeResponse: CompletionResponse? = null
+        val inputData = InputData(
+            prompt,
+            page,
+            count,
+            safe_search,
+            on_shopping_page,
+            mkt,
+            response_filter,
+            domain,
+            query_trace_id,
+            chat,
+            debug,
+            detailed
+        )
         try {
+
+            // to request solution sync
             completeResponse = YouChatClient.complete(
-                InputData(
-                    prompt,
-                    page,
-                    count,
-                    safe_search,
-                    on_shopping_page,
-                    mkt,
-                    response_filter,
-                    domain,
-                    query_trace_id,
-                    chat,
-                    debug,
-                    detailed
-                )
+                inputData
             )
+
+            println("Chat response sync:")
+            println(completeResponse!!.formattedText)
         } catch (e: CompletionException) {
             println("Failed to autocomplete: " + e.message)
             e.cause!!.printStackTrace()
         }
-        println("Chat response:")
-        println(completeResponse!!.formattedText)
+        println("Chat response async:")
+        YouChatClient.completeAsyncMessages(inputData)
+            .subscribe({print(it)}, {})
     }
 }

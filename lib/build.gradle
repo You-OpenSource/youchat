@@ -17,7 +17,7 @@ plugins {
 }
 group = "io.github.you-opensource"
 archivesBaseName = "youchat"
-version = "0.0.1"
+version = "0.0.2"
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -28,9 +28,11 @@ repositories {
 dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'com.squareup.okhttp3:okhttp-sse:4.9.3'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.15.0'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.15.0'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.15.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.6'
     implementation 'org.mockito:mockito-junit-jupiter:5.1.1'
 }
 
@@ -40,7 +42,7 @@ publishing {
 
             groupId = 'io.github.you-opensource'
             artifactId = 'youchat'
-            version = '0.0.1'
+            version = '0.0.2'
             from components.java
 
             pom {
