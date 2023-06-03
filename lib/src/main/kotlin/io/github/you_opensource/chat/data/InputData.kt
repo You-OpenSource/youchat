@@ -5,3 +5,21 @@ class InputData(
     var mkt: String, var responseFilter: String, var domain: String, var queryTraceId: String?,
     var chat: String?, var isDebug: Boolean, var isDetailed: Boolean
 )
+
+
+fun simpleInput(prompt: String): InputData {
+    return InputData(
+        prompt,
+        1,
+        10,
+        "Moderate",
+        false,
+        "en-US",
+        "WebPages,Translations,TimeZone,Computation,RelatedSearches",
+        "youchat",
+        null,
+        null,
+        false,
+        false
+    )
+}

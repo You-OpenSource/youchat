@@ -17,6 +17,8 @@ import java.util.regex.Pattern
 
 
 object YouChatClient {
+    val OBJECT_MAPPER: ObjectMapper = ObjectMapper()
+
     @Throws(CompletionException::class)
     fun complete(data: InputData): CompletionResponse {
         val client = OkHttpClient()
@@ -65,7 +67,6 @@ object YouChatClient {
 
     @Throws(CompletionException::class)
     fun completeAsyncMessages(data: InputData): Flowable<String> {
-        val objectMapper = ObjectMapper()
         val client = OkHttpClient()
         val request: Request = getRequest(data)
         return try {
@@ -73,7 +74,7 @@ object YouChatClient {
                 val realEventSource = RealEventSource(request, object : EventSourceListener() {
                     override fun onEvent(eventSource: EventSource, id: String?, type: String?, data: String) {
                         if (data.contains("youChatToken")) {
-                            val value = objectMapper.readValue(data, MutableMap::class.java)
+                            val value = OBJECT_MAPPER.readValue(data, MutableMap::class.java)
                             emitter.onNext(value["youChatToken"].toString())
                         }
                     }
