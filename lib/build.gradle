@@ -17,7 +17,7 @@ plugins {
 }
 group = "io.github.you-opensource"
 archivesBaseName = "youchat"
-version = "0.0.3"
+version = "0.0.4"
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -42,7 +42,7 @@ publishing {
 
             groupId = 'io.github.you-opensource'
             artifactId = 'youchat'
-            version = '0.0.3'
+            version = '0.0.4'
             from components.java
 
             pom {
