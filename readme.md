@@ -18,7 +18,7 @@ For maven:
 ```
 For Gradle:
 ```
-testImplementation 'io.github.you-opensource:youchat:0.0.3'
+implementation 'io.github.you-opensource:youchat:0.0.3'
 ```
 
 Use it to integrate with your Java/Kotlin code:
